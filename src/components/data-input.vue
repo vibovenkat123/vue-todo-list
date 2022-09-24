@@ -4,7 +4,7 @@ import { ref } from "vue";
 let currentInputTodo = ref("");
 const store = useTodoStore();
 function submit() {
-  store.todos.push(currentInputTodo.value);
+  store.add(currentInputTodo.value);
 }
 </script>
 <template>
