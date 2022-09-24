@@ -11,5 +11,10 @@ export const useTodoStore = defineStore("todo", () => {
     const toRemove = todos.value.indexOf(value!);
     todos.value.splice(toRemove, 1);
   }
-  return { todos, add, remove };
+  function edit(value: string | undefined, newValue: string) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const toEdit = todos.value.indexOf(value!);
+    todos.value[toEdit] = newValue;
+  }
+  return { todos, add, remove, edit };
 });
