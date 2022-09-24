@@ -5,6 +5,7 @@ let currentInputTodo = ref("");
 const store = useTodoStore();
 function submit() {
   store.add(currentInputTodo.value);
+  currentInputTodo.value = "";
 }
 </script>
 <template>

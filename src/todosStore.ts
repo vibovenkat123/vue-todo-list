@@ -5,6 +5,10 @@ export const useTodoStore = defineStore("todo", () => {
   const todos: Ref<string[]> = ref([]);
   function add(value: string) {
     todos.value.push(value);
+    if (todos.value.length !== new Set(todos.value).size) {
+      alert("Don't enter same todos");
+      todos.value.pop();
+    }
   }
   function remove(value?: string | undefined) {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -15,6 +19,11 @@ export const useTodoStore = defineStore("todo", () => {
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const toEdit = todos.value.indexOf(value!);
     todos.value[toEdit] = newValue;
+    if (todos.value.length !== new Set(todos.value).size) {
+      alert("Don't enter same todos");
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      todos.value[toEdit] = value!;
+    }
   }
   return { todos, add, remove, edit };
 });
