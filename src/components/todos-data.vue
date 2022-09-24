@@ -4,7 +4,9 @@ import TodoComponent from "./todo-component.vue";
 let store = useTodoStore();
 </script>
 <template>
-  <ul v-for="todo in store.todos" :key="todo">
-    <TodoComponent :value="todo" />
-  </ul>
+  <div class="overflow-auto">
+    <ul v-for="todo in store.todos" :key="todo">
+      <TodoComponent :value="todo" />
+    </ul>
+  </div>
 </template>
