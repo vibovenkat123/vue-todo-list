@@ -1,8 +1,18 @@
 import { defineStore } from "pinia";
-import { Ref, ref } from "vue";
-
+import { Ref, ref, watch } from "vue";
 export const useTodoStore = defineStore("todo", () => {
   const todos: Ref<string[]> = ref([]);
+  watch(
+    todos,
+    (todosVal) => {
+      localStorage.setItem("todos", JSON.stringify(todosVal));
+    },
+    { deep: true }
+  );
+  if (localStorage.getItem("todos")) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    todos.value = JSON.parse(localStorage.getItem("todos")!);
+  }
   function add(value: string) {
     todos.value.push(value);
     if (todos.value.length !== new Set(todos.value).size) {
