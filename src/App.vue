@@ -1,5 +1,9 @@
 <template>
-  <p class="text-3xl">Header</p>
+  <TodosData />
+  <DataInput />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import DataInput from "./components/data-input.vue";
+import TodosData from "./components/todos-data.vue";
+</script>

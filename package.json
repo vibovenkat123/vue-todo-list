@@ -10,6 +10,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.12",
     "core-js": "^3.8.3",
+    "pinia": "^2.0.22",
     "postcss": "^8.4.16",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13"
