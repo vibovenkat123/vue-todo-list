@@ -6,5 +6,10 @@ export const useTodoStore = defineStore("todo", () => {
   function add(value: string) {
     todos.value.push(value);
   }
-  return { todos, add };
+  function remove(value?: string | undefined) {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const toRemove = todos.value.indexOf(value!);
+    todos.value.splice(toRemove, 1);
+  }
+  return { todos, add, remove };
 });
